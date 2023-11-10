@@ -10,7 +10,9 @@
     <link rel="stylesheet" href="static/css/cake.css" media="screen" type="text/css">
     <link rel="stylesheet" href="https://ruanjiafeng2013.gitee.io/happy-birthday-template/css/content.css">
     <link rel="stylesheet" href="https://ruanjiafeng2013.gitee.io/happy-birthday-template/css/bubblefloat.css">
-    <audio src="music/2.mp3" autoplay="true" loop="true"></audio>
+    <audio preload autoplay loop id="music">
+        <source src="music/2.mp3" type="audio/mpeg">
+    </audio>
 </head>
 
 <body>
@@ -249,6 +251,18 @@
 <script src='static/js/happy.js'></script>
 <script src="static/js/d3-transform.js"></script>
 <script src="https://ruanjiafeng2013.gitee.io/happy-birthday-template/js/bubblefloat.js"></script>
+<script type="text/javascript">
+    window.onload = function(){
+             setInterval("toggleSound()",1);
+        }
+    function toggleSound() {
+                var music = document.getElementById("music");//获取ID  
+                if (music.paused) { //判读是否播放  
+                    music.paused=false;
+                    music.play(); //没有就播放 
+                }    
+        }
+</script>
 <!-- 生日快乐 -->
 
 </div></body>

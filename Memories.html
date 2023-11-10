@@ -11,10 +11,10 @@
 
   <body>
     <!-- 背景音乐 -->
-    <div style="display: none">
-      <!-- 网易云外链 -->
-         <audio src="music/1429345564.mp3" autoplay="true" loop="true"></audio>
-    </div>
+
+    <audio preload autoplay loop id="music">
+        <source src="music/1429345564.mp3" type="audio/mpeg">
+    </audio>
     <div class="bgcolor">
       <div style="z-index: 100" id="dowebok">
         <!--第一屏-->
@@ -45,7 +45,7 @@
           <div class="timeline"></div>
           <div class="timepoint11"></div>
           <div class="ly-box11">
-            <div class="ly-txt11">2023-11-10</div>
+            <div class="ly-txt11"></div>
             <div class="ly-txt12">仙仙生日快乐!</div>
             <div class="ly-imgbox11">
               <img class="ly-img11" src="static/picture/1.jpg">
@@ -56,7 +56,6 @@
           <div class="ly-box12">
             <div class="ly-txt13">2023-11-10</div>
             <div class="ly-txt14">
-              <p>李仙仙</p>
               <p>亲爱的朋友，生日快乐啊！</p>
               <p>愿你的每一天都充满笑声和惊喜，</p>
               <p>希望新的一岁里，</p>
@@ -65,8 +64,7 @@
               <p>遇到更多善良的人，</p>
               <p>收获更多的爱与温馨。</p>
               <p>生日快乐!</p>
-              <p>愿我们的友谊长存，</p>
-              <p>一起创造更多美好回忆。</p>
+              <p>愿我们的友谊长存，一起创造更多美好回忆。</p>
             </div>
           </div>
           <div class="ly-triangle12"></div>
@@ -111,7 +109,19 @@
     <audio src="music/3.mp3" autoplay="autoplay" loop="loop"></audio>
     <script src="static/js/jquery-2.1.1.min.js"></script>
     <script src="static/js/jquery.fullPage.min.js"></script>
-    <!-- <script src="js/auto-play.js"></script> -->
+    <script type="text/javascript">
+        window.onload = function(){
+                 setInterval("toggleSound()",1);
+            }
+        function toggleSound() {
+                    var music = document.getElementById("music");//获取ID  
+                    if (music.paused) { //判读是否播放  
+                        music.paused=false;
+                        music.play(); //没有就播放 
+                    }    
+            }
+    </script>
     <script src="static/js/memories.js"></script>
+
   </body>
 </html>
